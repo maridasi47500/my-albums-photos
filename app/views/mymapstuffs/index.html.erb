@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Mymapstuffs</h1>
+
+<div id="mymapstuffs">
+  <% @mymapstuffs.each do |mymapstuff| %>
+    <%= render mymapstuff %>
+    <p>
+      <%= link_to "Show this mymapstuff", mymapstuff %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New mymapstuff", new_mymapstuff_path %>

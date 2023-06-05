@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @mymapstuff %>
+
+<div>
+  <%= link_to "Edit this mymapstuff", edit_mymapstuff_path(@mymapstuff) %> |
+  <%= link_to "Back to mymapstuffs", mymapstuffs_path %>
+
+  <%= button_to "Destroy this mymapstuff", @mymapstuff, method: :delete %>
+</div>

@@ -1,0 +1,27 @@
+<%= form_with(model: sentence,url:addsentence_sentences_path,html:{onsubmit:"submitsentence();return false;",id:"sentence-form"}) do |form| %>
+  <% if sentence.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(sentence.errors.count, "error") %> prohibited this sentence from being saved:</h2>
+
+      <ul>
+        <% sentence.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.label :mypic_id, style: "display: block" %>
+    <%= form.number_field :mypic_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Mypics</h1>
+
+<div id="mypics">
+  <% @mypics.each do |mypic| %>
+    <%= render mypic %>
+    <p>
+      <%= link_to "Show this mypic", mypic %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New mypic", new_mypic_path %>

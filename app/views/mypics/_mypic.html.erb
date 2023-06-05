@@ -1,0 +1,18 @@
+<div id="<%= dom_id mypic %>" class="mypic11">
+  <div class="pic">
+     <img src="/uploads/<%=mypic.image%>" alt="Workplace" usemap="#workmap">
+      <div style="display:none;" class="mymenu">
+                                                        <div class="autrenom" onclick="autrenom();">
+                                                          autre nom
+                                                                                                          </div>
+                                                                                                                                                          <div class="supprimer" onclick="supprimer()">
+                                                                                                                                                                                                              supprimer
+                                                                                                                                                                                                                                                              </div>
+
+                                                                                                                                                                                                                                                                                                            </div>
+     <div class="mystuff1">
+    <%=render "mypics/mypicmap",mypic:mypic%>
+     </div>
+  </div>
+
+</div>

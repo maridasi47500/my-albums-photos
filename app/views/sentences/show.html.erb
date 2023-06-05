@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @sentence %>
+
+<div>
+  <%= link_to "Edit this sentence", edit_sentence_path(@sentence) %> |
+  <%= link_to "Back to sentences", sentences_path %>
+
+  <%= button_to "Destroy this sentence", @sentence, method: :delete %>
+</div>

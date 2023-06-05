@@ -1,0 +1,2 @@
+module MypicsHelper
+end

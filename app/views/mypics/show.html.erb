@@ -1,0 +1,48 @@
+<p style="color: green"><%= notice %></p>
+<div id="mycreateurl" hidden><%=add_mypic_path(@mypic.id)%>
+
+
+</div>
+
+<div class="mypicdiv">
+<%= render @mypic %>
+  <%= link_to "Editer les choses sur cette iamge", editstuff_mypic_path(@mypic) %> |
+  <%= link_to "Edit this mypic", edit_mypic_path(@mypic) %> |
+  <%= link_to "Back to mypics", mypics_path %>
+
+  <%= button_to "Destroy this mypic", @mypic, method: :delete %>
+</div>
+<div class="sentences">
+  <%=render "mypics/sentences",mypic:@mypic%>
+</div>
+ <!-- Trigger/Open The Modal -->
+ <button id="myBtn">Ajouter des trucs sur l'image</button>
+
+ <!-- The Modal -->
+ <div id="myModal" class="modal">
+
+     <!-- Modal content -->
+       <div class="modal-content">
+             <span class="close">&times;</span>
+             <div>Some pic
+                <img width="400" height="400" src="/uploads/<%= @mypic.image %>" class="somepic addstuff"/>
+
+             </div>
+                   </div>
+
+ </div> 
+ <button id="myBtnSentence">Ajouter une phrase</button>
+
+ <!-- The Modal -->
+ <div id="myModalSentence" class="modalSentence">
+
+     <!-- Modal content -->
+       <div class="modal-contentSentence">
+             <span class="closeSentence">&times;</span>
+             <div> <h2>add a sentence</h2>
+               <%= render "sentences/form", sentence: @sentence %> 
+
+             </div>
+                   </div>
+
+ </div> 

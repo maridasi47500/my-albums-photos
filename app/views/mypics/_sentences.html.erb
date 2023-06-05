@@ -1,0 +1,5 @@
+<ul>
+<%mypic.sentences.each do |s|%>
+  <li data-title="<%=s.content%>" onclick="myfunc(this);"><%=s.content%> <%=link_to "edit",edit_sentence_path(s)%> </li>
+  <%end%>
+</ul>
