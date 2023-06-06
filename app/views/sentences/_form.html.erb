@@ -11,10 +11,12 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_area :content %>
-  </div>
+  <% Sentence.locale_columns(:content).each do |column| %>
+      <p>
+          <%= form.label column %>
+              <%= form.text_field column %>
+                </p>
+              <% end %>
 
   <div>
     <%= form.label :mypic_id, style: "display: block" %>

@@ -10,6 +10,12 @@
       </ul>
     </div>
   <% end %>
+  <% Mypic.locale_columns(:title).each do |column| %>
+      <p>
+          <%= form.label column %>
+              <%= form.text_field column %>
+                </p>
+              <% end %>
 
   <div>
     <%= form.label :image, style: "display: block" %>

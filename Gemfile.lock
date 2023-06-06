@@ -184,6 +184,8 @@ GEM
       railties (>= 6.0.0)
     thor (1.2.2)
     timeout (0.3.2)
+    traco (5.3.3)
+      activerecord (>= 4.2)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
@@ -223,6 +225,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
+  traco
   turbo-rails
   tzinfo-data
   web-console

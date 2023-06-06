@@ -11,10 +11,12 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
+  <% Mymapstuff.locale_columns(:title).each do |column| %>
+      <p>
+          <%= form.label column %>
+              <%= form.text_field column %>
+                </p>
+              <% end %>
 
   <div>
     <%= form.label :x, style: "display: block" %>

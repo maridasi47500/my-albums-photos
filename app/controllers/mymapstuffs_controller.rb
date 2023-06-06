@@ -79,6 +79,6 @@ class MymapstuffsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def mymapstuff_params
-      params.require(:mymapstuff).permit(:title, :x, :y, :mypic_id)
+      params.require(:mymapstuff).permit(:title_fr,:title_en, :x, :y, :mypic_id)
     end
 end

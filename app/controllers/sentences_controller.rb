@@ -70,6 +70,6 @@ class SentencesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def sentence_params
-      params.require(:sentence).permit(:content, :mypic_id)
+      params.require(:sentence).permit(:content_fr,:content_en, :mypic_id)
     end
 end

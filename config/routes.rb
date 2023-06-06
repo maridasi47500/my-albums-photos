@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  scope "(:locale)", locale: /en|fr/ do
   resources :sentences do
     collection do
       post "addsentence"
@@ -16,7 +17,8 @@ Rails.application.routes.draw do
       get "editstuff"
     end
   end
-  root 'mypics#index'
+  end
+  root 'mypics#index', locale: :fr
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
