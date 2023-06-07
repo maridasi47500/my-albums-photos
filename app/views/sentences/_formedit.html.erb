@@ -1,0 +1,29 @@
+<%= form_with(model: sentence,html:{onsubmit:"",id:"edit_sentence-form"}) do |form| %>
+  <% if sentence.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(sentence.errors.count, "error") %> prohibited this sentence from being saved:</h2>
+
+      <ul>
+        <% sentence.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% Sentence.locale_columns(:content).each do |column| %>
+      <p>
+          <%= form.label column %>
+              <%= form.text_field column %>
+                </p>
+              <% end %>
+
+  <div>
+    <%= form.hidden_field :mypic_id %>
+    <%= form.hidden_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

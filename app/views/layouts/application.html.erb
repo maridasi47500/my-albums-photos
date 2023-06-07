@@ -11,6 +11,27 @@
   </head>
 
   <body>
+    <%=link_to "toutes les photos",mypics_path%>  | 
+    <%=link_to "connexion","/users/sign_in"%>  | 
+    <%=link_to "inscription","/users/sign_up"%>  | 
+    <%if user_signed_in?%>
+      <%=button_to "deconnexion",destroy_user_session_path,method: :delete%> | 
+  <%end%>
+    <div class="languages">
+    <%=link_to "english",url_for(:locale => :en)%>  | 
+    <%=link_to "français",url_for(:locale => :fr)%>
+    </div>
+    <img src="/assets/flag_<%=I18n.locale%>" width=100 height=70 class="flag"/>
+    <div hidden id="locale"><%=I18n.locale%></div>
+    <div>
+      changer l'accent
+    <%case I18n.locale.to_s%>
+    <%when "fr"%>
+      <%=select_tag "mylocale",options_for_select([["fr-FR", "français (France)"],["fr-CA","français (canada)"]].map{|g|[g[1],g[0]]})%>
+    <%when "en"%>
+      <%=select_tag "mylocale",options_for_select([["en-US", "anglais (USA)"],["en-GB","anglais (Royaume-uni)"]].map{|g|[g[1],g[0]]})%>
+    <%end%>
+    </div>
     <%= yield %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="/assets/<%=params[:controller]%>.js"></script>

@@ -1,0 +1,11 @@
+--2023-06-07 08:23:45--  https://www.bing.com/th?id=OPE.PJ6RCTurPcEH4g300C300&pid=21.1&w=140&h=140&qlt=100&dpr=1
+Resolving www.bing.com (www.bing.com)... 23.215.190.75, 23.215.190.96, 23.215.190.74, ...
+Connecting to www.bing.com (www.bing.com)|23.215.190.75|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5129 (5.0K) [image/jpeg]
+Saving to: ‘th?id=OPE.PJ6RCTurPcEH4g300C300&pid=21.1&w=140&h=140&qlt=100&dpr=1’
+
+     0K .....                                                 100%  100M=0s
+
+2023-06-07 08:23:45 (100 MB/s) - ‘th?id=OPE.PJ6RCTurPcEH4g300C300&pid=21.1&w=140&h=140&qlt=100&dpr=1’ saved [5129/5129]
+

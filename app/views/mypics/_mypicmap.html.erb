@@ -1,7 +1,7 @@
  <%mypic.mymapstuffs.each do |stuff|%>
        <div class="div1" style="left:<%=stuff.x - 50%>px;top:<%=stuff.y+50%>px;position:absolute;"><%=stuff.title%></div>
          <%end%>
-      <map name="workmap">
+         <map name="workmap<%=mypic.id%>">
         <% mypic.mymapstuffs.each do |stuff| %>
           <area shape="rect" coords="<%=stuff.x - 50%>,<%=stuff.y - 50%>,<%=stuff.x + 50%>,<%=stuff.y + 50%>" alt="Computer" href="computer.htm" onclick="<%if params[:action]=="editstuff"%>myotherfunc<%else%>myfunc<%end%>(this);return false;" data-title="<%=stuff.title%>" data-id="<%=stuff.id%>">
                <%end%>

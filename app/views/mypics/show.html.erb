@@ -3,7 +3,7 @@
 
 
 </div>
-
+<h2 data-title="<%=@mypic.title%>" onclick="myfunc(this);"><%=@mypic.title%></h2>
 <div class="mypicdiv">
 <%= render @mypic %>
   <%= link_to "Editer les choses sur cette iamge", editstuff_mypic_path(@mypic) %> |

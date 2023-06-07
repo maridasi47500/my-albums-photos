@@ -4,7 +4,7 @@
 				                                     var y = event.pageY - this.offsetTop;
 				                                     console.log("X Coordinate: " + x + " Y Coordinate: " + y);
 				   let person = prompt("cliquer le nom de l'élément à ajouter", "");
-				                             $.ajax({url:$("#mycreateurl").html(),type:"post",data:{x:x,y:y,title:person},success:function(data){
+				                             $.ajax({url:$("#mycreateurl").html(),type:"post",data:{x:x,y:y,title:person,mylocale:$("#locale").html()},success:function(data){
 //update ic
 								     $(".mystuff1")[0].innerHTML = data;
            modal.style.display = "none";
@@ -67,7 +67,7 @@ if (span){
              } 
 function submitsentence(){
 	var form=$("#sentence-form");
-	$.ajax({url:form.attr("action"),type:"POST",data:form.serialize(),
+	$.ajax({url:form.attr("action"),type:"POST",data:form.serialize()+"&mylocale="+$("#locale").html(),
 		success:function(data){
 			$(".sentences").html(data);
      modalSentence.style.display = "none";
@@ -76,7 +76,7 @@ function submitsentence(){
 	});
 }
 function supprimer(){
-				                             $.ajax({url:"/mymapstuffs/"+$(".mymenu")[0].dataset.id+"/supprimer",type:"post",data:{},success:function(data){
+				                             $.ajax({url:"/mymapstuffs/"+$(".mymenu")[0].dataset.id+"/supprimer",type:"post",data:{mylocale:$("#locale").html()},success:function(data){
 //update ic
 								     $(".mystuff1")[0].innerHTML = data;
 								     $(".mymenu").hide();
@@ -89,7 +89,7 @@ function supprimer(){
 							     }
 function autrenom(){
 				   let person = prompt("cliquer le nom de l'élément à ajouter", "");
-				                             $.ajax({url:"/mymapstuffs/"+$(".mymenu")[0].dataset.id+"/autrenom",type:"post",data:{title:person},success:function(data){
+				                             $.ajax({url:"/mymapstuffs/"+$(".mymenu")[0].dataset.id+"/autrenom",type:"post",data:{title:person,mylocale:$("#locale").html()},success:function(data){
 //update ic
 								     $(".mystuff1")[0].innerHTML = data;
 								     $(".mymenu").hide();
@@ -113,7 +113,7 @@ function myfunc(div){
 
 		  // Get the first `en` language voice in the list
 		   var voice = synthesis.getVoices().filter(function (voice) {
-		       return voice.lang === 'fr';
+		       return voice.lang === $("#mylocale").val();
 		         })[0];
 		
 		           // Create an utterance object

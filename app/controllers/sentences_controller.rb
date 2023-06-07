@@ -6,7 +6,7 @@ class SentencesController < ApplicationController
     @sentences = Sentence.all
   end
  def addsentence
-   @sentence=Sentence.new(sentence_params)
+   @sentence=Sentence.new(sentence_params.merge({user_id:current_user.id}))
    @sentence.save
    @mypic=@sentence.mypic
          render partial: "mypics/sentences", locals:{mypic:@mypic}, layout: false
@@ -70,6 +70,6 @@ class SentencesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def sentence_params
-      params.require(:sentence).permit(:content_fr,:content_en, :mypic_id)
+      params.require(:sentence).permit(:content_fr,:content_en, :mypic_id,:user_id)
     end
 end

@@ -4,16 +4,20 @@ class MymapstuffsController < ApplicationController
 
   # GET /mymapstuffs or /mymapstuffs.json
   def autrenom
-    @mymapstuff.update(title:params[:title])
+    @mymapstuff.update("title_#{params[:mylocale]}" => params[:title])
     params[:action]="editstuff"
-    render partial: "mypics/mypicmap", locals:{mypic:@mymapstuff.mypic}, layout: false
+    I18n.with_locale(params[:mylocale]) do
+    render partial: "mypics/mypicmap", locals:{mypic:@mymapstuff.mypic}, layout: false,locale:params[:mylocale]
+    end
 
               end
     def supprimer
       @mypic=@mymapstuff.mypic
     @mymapstuff.destroy
     params[:action]="editstuff"
-              render partial: "mypics/mypicmap", locals:{mypic:@mypic}, layout: false
+    I18n.with_locale(params[:mylocale]) do
+              render partial: "mypics/mypicmap", locals:{mypic:@mypic}, layout: false,locale: params[:mylocale]
+    end
 
                 end
   def index
@@ -79,6 +83,6 @@ class MymapstuffsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def mymapstuff_params
-      params.require(:mymapstuff).permit(:title_fr,:title_en, :x, :y, :mypic_id)
+      params.require(:mymapstuff).permit(:title_fr,:title_en, :x, :y, :mypic_id,:user_id)
     end
 end

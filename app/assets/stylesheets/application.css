@@ -114,3 +114,18 @@
 							    .mypic11{width:500px;margin:auto;text-align:center;}
 							    #mypics{
 								    text-align:center;}
+						[data-title] {
+							cursor:pointer;
+						}
+						.flag {
+							width:100px;height:70px;
+							position:absolute;
+							display:block;right:0;top:0;
+						}
+						.languages {
+								position: absolute;
+									display: block;
+										right: 0;
+											top: 70px;
+												float: right;
+											}

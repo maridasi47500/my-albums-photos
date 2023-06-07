@@ -4,8 +4,10 @@ class MypicsController < ApplicationController
 
   # GET /mypics or /mypics.json
   def add
-    Mymapstuff.create(mypic_id:@mypic.id,x:params[:x],y:params[:y],title:params[:title])
-    render partial: "mypics/mypicmap", locals:{mypic:@mypic}, layout: false
+    Mymapstuff.create(user_id: current_user.try(:id),mypic_id:@mypic.id,x:params[:x],y:params[:y],title:params[:title])
+    I18n.with_locale(params[:mylocale]) do
+    render partial: "mypics/mypicmap", locals:{mypic:@mypic}, layout: false,locale:params[:mylocale]
+    end
 
   end
   def index
@@ -14,7 +16,7 @@ class MypicsController < ApplicationController
 
   # GET /mypics/1 or /mypics/1.json
   def show
-    @sentence=Sentence.new(mypic_id:@mypic.id)
+    @sentence=Sentence.new(user_id:current_user.try(:id),mypic_id:@mypic.id)
   end
 
   # GET /mypics/new
@@ -72,6 +74,6 @@ class MypicsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def mypic_params
-      params.require(:mypic).permit(:title_en,:title_fr,:image)
+      params.require(:mypic).permit(:title_en,:title_fr,:image,:user_id)
     end
 end

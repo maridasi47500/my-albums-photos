@@ -10,6 +10,12 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
+  config.assets.debug=false
+  config.assets.check_precompiled_asset = false
+  config.assets.precompile += 
+      %w(*.png *.jpg *.jpeg *.gif vendor/somefile.js vendor/somefile.css \
+       vendor/bootstrap/*.js vendor/bootstrap/*.css \
+       vendor/bootstrap/**/*.js vendor/bootstrap/**/*.css)
 
   # Show full error reports.
   config.consider_all_requests_local = true
