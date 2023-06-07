@@ -6,7 +6,7 @@ class SentencesController < ApplicationController
     @sentences = Sentence.all
   end
  def addsentence
-   @sentence=Sentence.new(sentence_params.merge({user_id:current_user.id}))
+   @sentence=Sentence.new(sentence_params)
    @sentence.save
    @mypic=@sentence.mypic
          render partial: "mypics/sentences", locals:{mypic:@mypic}, layout: false
